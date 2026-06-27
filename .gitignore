@@ -1,1 +1,24 @@
 /AI-Skills/
+
+# Dependency folders are excluded so installed packages never enter version control.
+node_modules/
+venv/
+.venv/
+
+# Environment files can contain secrets and must remain local-only.
+.env
+.env.local
+.env.*.local
+
+# Build outputs are generated artifacts, not source files.
+dist/
+build/
+
+# Editor, operating system, and runtime noise should stay out of source control.
+.vscode/
+*.log
+.DS_Store
+__pycache__/
+/.claude/
+/.github/
+/CLAUDE.md

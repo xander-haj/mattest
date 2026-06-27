@@ -1,0 +1,165 @@
+/*
+  This stylesheet owns the first-viewport hero and the CSS-only meadow illustration.
+  The visual treatment intentionally avoids image files, SVG files, external assets, and scripts.
+*/
+
+/*
+  The hero uses a two-column layout that keeps copy readable while leaving room for the CSS meadow scene.
+*/
+.hero-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(20rem, 0.98fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+  width: min(var(--content-width), calc(100% - 2rem));
+  min-height: calc(100vh - 4.2rem);
+  margin: 0 auto;
+  padding: clamp(3rem, 8vw, 6.5rem) 0;
+}
+
+/*
+  The hero copy is capped so the large headline does not become tiring to scan on wide screens.
+*/
+.hero-copy {
+  max-width: 40rem;
+}
+
+/*
+  The main heading is sized with clamp bounds rather than viewport scaling alone, preserving mobile fit.
+*/
+h1 {
+  max-width: 11ch;
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3.25rem, 7vw, 6.7rem);
+  line-height: 0.92;
+  letter-spacing: 0;
+}
+
+/*
+  Supporting hero text stays larger than body text but below headline scale.
+*/
+.hero-summary {
+  max-width: 39rem;
+  margin: 1.45rem 0 0;
+  color: var(--color-muted);
+  font-size: clamp(1.05rem, 2vw, 1.28rem);
+}
+
+/*
+  The button row wraps so long text never forces horizontal scrolling on small devices.
+*/
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 2rem;
+}
+
+/*
+  The visual panel is an accessible CSS illustration; it contains no raster or vector image assets.
+*/
+.hero-visual {
+  position: relative;
+  min-height: clamp(21rem, 45vw, 32rem);
+  overflow: hidden;
+  border: 1px solid rgba(88, 98, 80, 0.18);
+  border-radius: var(--radius-small);
+  background:
+    linear-gradient(180deg, rgba(204, 228, 223, 0.92), rgba(247, 244, 234, 0.8) 58%),
+    linear-gradient(90deg, rgba(107, 143, 56, 0.18), rgba(182, 183, 96, 0.22));
+  box-shadow: var(--shadow-soft);
+}
+
+/*
+  The sun disc gives the scene a clear light source using only a radial gradient.
+*/
+.sun-disc {
+  position: absolute;
+  right: 12%;
+  top: 12%;
+  width: 7.5rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, #f6d276 0 35%, rgba(246, 210, 118, 0) 68%);
+}
+
+/*
+  Jump arcs translate the grasshopper theme into motion without drawing an insect.
+*/
+.jump-arc {
+  position: absolute;
+  border: 0.18rem solid transparent;
+  border-top-color: rgba(49, 106, 66, 0.58);
+  border-radius: 50%;
+}
+
+/*
+  The first arc sits higher to imply a larger leap path.
+*/
+.arc-one {
+  left: 16%;
+  top: 28%;
+  width: 58%;
+  height: 40%;
+  transform: rotate(-12deg);
+}
+
+/*
+  The second arc adds depth and prevents the illustration from feeling like a single decorative stripe.
+*/
+.arc-two {
+  left: 34%;
+  top: 42%;
+  width: 40%;
+  height: 26%;
+  transform: rotate(10deg);
+}
+
+/*
+  Grass blades are absolute elements so their height and angle can vary like a real meadow edge.
+*/
+.grass-blade {
+  position: absolute;
+  bottom: -1rem;
+  width: 1.1rem;
+  border-radius: 999px 999px 0 0;
+  background: linear-gradient(90deg, var(--color-canopy), var(--color-moss));
+  transform-origin: bottom center;
+}
+
+/*
+  Each blade uses a distinct placement to create an organic field silhouette.
+*/
+.blade-one {
+  left: 12%;
+  height: 62%;
+  transform: rotate(-15deg);
+}
+
+/*
+  The second blade is taller so the foreground crosses the lower jump arc.
+*/
+.blade-two {
+  left: 36%;
+  height: 74%;
+  transform: rotate(8deg);
+}
+
+/*
+  The third blade leans strongly to keep the scene dynamic.
+*/
+.blade-three {
+  right: 28%;
+  height: 68%;
+  transform: rotate(-24deg);
+}
+
+/*
+  The fourth blade anchors the far side of the visual panel.
+*/
+.blade-four {
+  right: 10%;
+  height: 54%;
+  transform: rotate(18deg);
+}

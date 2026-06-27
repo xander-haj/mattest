@@ -1,0 +1,239 @@
+/*
+  This stylesheet owns the informational content sections below the grasshopper hero.
+  It defines section rhythm, factual cards, anatomy details, the life-cycle timeline, and field notes.
+*/
+
+/*
+  Shared section containers keep the page rhythm steady across the factual content bands.
+*/
+.quick-facts,
+.content-band,
+.field-notes {
+  width: min(var(--content-width), calc(100% - 2rem));
+  margin: 0 auto;
+  padding: clamp(3.5rem, 7vw, 6rem) 0;
+}
+
+/*
+  Section headings are constrained separately from body layouts so intros stay easy to scan.
+*/
+.section-heading {
+  max-width: 45rem;
+  margin-bottom: 1.75rem;
+}
+
+/*
+  The fact grid uses auto-fit to preserve card width while adapting to available space.
+*/
+.fact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: 1rem;
+}
+
+/*
+  Fact cards are individual repeated items, so the framed-card treatment is appropriate here.
+*/
+.fact-card {
+  min-height: 15rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-small);
+  background: var(--color-surface);
+  padding: 1.35rem;
+  box-shadow: 0 0.75rem 1.8rem rgba(43, 59, 34, 0.08);
+}
+
+/*
+  The fact number behaves like a field specimen label rather than a decorative badge.
+*/
+.fact-number {
+  display: block;
+  margin-bottom: 2.2rem;
+  color: var(--color-clay);
+  font-size: 0.76rem;
+  font-weight: 900;
+}
+
+/*
+  Card body copy is muted to establish hierarchy beneath each fact title.
+*/
+.fact-card p {
+  margin-top: 0.8rem;
+  color: var(--color-muted);
+}
+
+/*
+  Content bands use borders instead of floating section cards, keeping the layout grounded and full-width in feel.
+*/
+.content-band {
+  border-top: 1px solid rgba(88, 98, 80, 0.2);
+}
+
+/*
+  Split layout supports anatomy content where prose and labeled details are equally important.
+*/
+.split-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.75fr);
+  gap: clamp(1.5rem, 5vw, 4rem);
+}
+
+/*
+  The text column spaces paragraphs without requiring extra wrapper elements around each paragraph.
+*/
+.text-column {
+  display: grid;
+  gap: 1rem;
+  color: var(--color-muted);
+  font-size: 1.04rem;
+}
+
+/*
+  The detail list resets browser defaults so each term-definition pair can be styled as a compact row.
+*/
+.detail-list {
+  display: grid;
+  gap: 0.8rem;
+  margin: 0;
+}
+
+/*
+  Each detail row is framed because it is a repeated data item rather than a full section container.
+*/
+.detail-list div {
+  border-left: 0.35rem solid var(--color-moss);
+  border-radius: var(--radius-small);
+  background: rgba(255, 253, 245, 0.76);
+  padding: 1rem;
+}
+
+/*
+  Terms use the canopy color to tie anatomical labels back to the grassland palette.
+*/
+.detail-list dt {
+  color: var(--color-canopy);
+  font-weight: 900;
+}
+
+/*
+  Definitions remove default margins so row spacing is controlled only by the parent layout.
+*/
+.detail-list dd {
+  margin: 0.35rem 0 0;
+  color: var(--color-muted);
+}
+
+/*
+  Timeline numbering is represented by ordered-list semantics and visible step labels.
+*/
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/*
+  Timeline items are cards because they are a repeated ordered sequence.
+*/
+.timeline li {
+  position: relative;
+  min-height: 13.5rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-small);
+  background: linear-gradient(180deg, var(--color-surface), rgba(255, 253, 245, 0.66));
+  padding: 1.25rem;
+}
+
+/*
+  Step labels make the developmental phase visible even when list counters are visually removed.
+*/
+.timeline-step {
+  display: inline-block;
+  margin-bottom: 2rem;
+  color: var(--color-clay);
+  font-weight: 900;
+}
+
+/*
+  Timeline descriptions use muted copy to keep the phase names as the primary scan path.
+*/
+.timeline p {
+  color: var(--color-muted);
+}
+
+/*
+  Habitat cards use a lighter framed treatment because the section explains related environment types.
+*/
+.habitat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 1rem;
+}
+
+/*
+  Habitat articles remain compact enough to compare at a glance.
+*/
+.habitat-grid article {
+  border-top: 0.28rem solid var(--color-stem);
+  background: rgba(255, 253, 245, 0.55);
+  padding: 1.1rem 0 0;
+}
+
+/*
+  Habitat body copy is separated from headings with consistent vertical rhythm.
+*/
+.habitat-grid p {
+  margin-top: 0.55rem;
+  color: var(--color-muted);
+}
+
+/*
+  The role layout presents two balanced paragraphs because the section is explicitly about ecological tradeoffs.
+*/
+.role-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.25rem, 4vw, 3rem);
+  color: var(--color-muted);
+  font-size: 1.05rem;
+}
+
+/*
+  Field notes close the page with a strong but restrained band that feels like a practical checklist.
+*/
+.field-notes {
+  margin-bottom: 3rem;
+  border: 1px solid rgba(49, 106, 66, 0.24);
+  border-radius: var(--radius-small);
+  background: var(--color-ink);
+  color: var(--color-surface);
+  padding-inline: clamp(1.25rem, 4vw, 3rem);
+}
+
+/*
+  The final section uses lighter label contrast because it sits on the dark ink background.
+*/
+.field-notes .eyebrow {
+  color: #f2c36f;
+}
+
+/*
+  The observation list uses a responsive grid to avoid long line lengths on desktop.
+*/
+.observation-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem 1.5rem;
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+/*
+  List items receive comfortable spacing because each note is meant to be read independently in the field.
+*/
+.observation-list li {
+  padding-left: 0.25rem;
+}

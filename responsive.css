@@ -1,0 +1,78 @@
+/*
+  This stylesheet owns responsive overrides for the static grasshopper field guide.
+  It is loaded last so breakpoint rules can adjust layout without increasing selector complexity.
+*/
+
+/*
+  Medium screens collapse the hero and dense two-column areas before text becomes cramped.
+*/
+@media (max-width: 820px) {
+  /*
+    The header content stacks only when necessary, preserving readable touch targets.
+  */
+  .site-nav {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  /*
+    Left-aligning nav links on mobile keeps wrapped links predictable.
+  */
+  .nav-links {
+    justify-content: flex-start;
+  }
+
+  /*
+    The hero becomes a single column so the illustration never squeezes the headline.
+  */
+  .hero-section {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  /*
+    The visual remains substantial after stacking but no longer competes with the first viewport.
+  */
+  .hero-visual {
+    min-height: 19rem;
+  }
+
+  /*
+    Detail-heavy sections collapse to one column for comfortable reading.
+  */
+  .split-layout,
+  .timeline,
+  .role-layout,
+  .observation-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*
+  Small screens reduce outer widths and headline scale so text stays inside its containers.
+*/
+@media (max-width: 520px) {
+  /*
+    The hero heading needs a wider measure on phones because the words are long.
+  */
+  h1 {
+    max-width: 100%;
+    font-size: clamp(2.65rem, 16vw, 3.4rem);
+  }
+
+  /*
+    Buttons become full-width tap targets when horizontal space is tight.
+  */
+  .button {
+    width: 100%;
+  }
+
+  /*
+    Cards use slightly smaller padding so content density remains balanced on narrow screens.
+  */
+  .fact-card,
+  .timeline li {
+    min-height: 0;
+    padding: 1.1rem;
+  }
+}
