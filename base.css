@@ -1,0 +1,260 @@
+/*
+  Shared foundation for the grasshopper field guide.
+  This file owns design tokens, document defaults, header navigation, typography, and reusable buttons.
+*/
+
+/*
+  Custom properties keep colors, spacing limits, and radii consistent across the CSS modules.
+*/
+:root {
+  --color-ink: #172016;
+  --color-muted: #586250;
+  --color-page: #f7f4ea;
+  --color-surface: #fffdf5;
+  --color-canopy: #316a42;
+  --color-moss: #6b8f38;
+  --color-stem: #b6b760;
+  --color-clay: #b65f3a;
+  --color-line: #d8d3bf;
+  --shadow-soft: 0 18px 50px rgba(43, 59, 34, 0.14);
+  --content-width: 1120px;
+  --radius-small: 8px;
+}
+
+/*
+  Border-box sizing makes panels, pseudo-elements, and responsive grids predictable.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+  Smooth scrolling improves same-page navigation while preserving normal link behavior.
+*/
+html {
+  scroll-behavior: smooth;
+}
+
+/*
+  The body sets a calm field-guide canvas and a readable system font stack.
+*/
+body {
+  margin: 0;
+  background:
+    linear-gradient(180deg, rgba(204, 228, 223, 0.72) 0%, rgba(247, 244, 234, 0) 34rem),
+    var(--color-page);
+  color: var(--color-ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+
+/*
+  Links inherit text color so each component can define its own emphasis.
+*/
+a {
+  color: inherit;
+}
+
+/*
+  Paragraph margins are reset so section components control their own rhythm.
+*/
+p {
+  margin: 0;
+}
+
+/*
+  Section headings use a serif face to feel editorial without requiring external fonts.
+*/
+h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+/*
+  Card headings stay compact because they sit inside dense repeated blocks.
+*/
+h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+/*
+  The skip link is hidden until focus so keyboard users can bypass repeated navigation.
+*/
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 20;
+  transform: translateY(-150%);
+  border-radius: var(--radius-small);
+  background: var(--color-ink);
+  color: var(--color-surface);
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  transition: transform 160ms ease;
+}
+
+/*
+  Focus reveals the skip link without shifting the document layout.
+*/
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/*
+  The sticky header keeps short section links available during reading.
+*/
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(88, 98, 80, 0.18);
+  background: rgba(247, 244, 234, 0.9);
+  backdrop-filter: blur(14px);
+}
+
+/*
+  The navigation container centers the header content and separates the brand from links.
+*/
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  width: min(var(--content-width), calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 0.9rem 0;
+}
+
+/*
+  The brand mark uses CSS borders for a tiny grasshopper-like angle without external artwork.
+*/
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--color-ink);
+  font-weight: 800;
+  letter-spacing: 0;
+  text-decoration: none;
+}
+
+/*
+  This decorative mark is built from borders so it stays sharp at any scale.
+*/
+.brand-icon {
+  position: relative;
+  width: 2rem;
+  height: 1.2rem;
+  border-bottom: 0.24rem solid var(--color-canopy);
+  border-left: 0.24rem solid var(--color-canopy);
+  transform: skewX(-18deg);
+}
+
+/*
+  The pseudo-element adds a second angled segment to make the mark feel insect-like.
+*/
+.brand-icon::after {
+  content: "";
+  position: absolute;
+  right: -0.35rem;
+  bottom: -0.24rem;
+  width: 1rem;
+  height: 0.24rem;
+  background: var(--color-clay);
+  transform: rotate(-28deg);
+  transform-origin: left center;
+}
+
+/*
+  Navigation wraps naturally so small screens do not require a scripted menu.
+*/
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.35rem 1rem;
+  color: var(--color-muted);
+  font-size: 0.94rem;
+  font-weight: 700;
+}
+
+/*
+  Link padding creates reliable hover and focus targets without making bulky pills.
+*/
+.nav-links a {
+  border-radius: var(--radius-small);
+  padding: 0.35rem 0.15rem;
+  text-decoration: none;
+}
+
+/*
+  Pointer hover and keyboard focus share the same visual treatment.
+*/
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: var(--color-canopy);
+  outline: 0;
+  box-shadow: inset 0 -0.14rem 0 var(--color-stem);
+}
+
+/*
+  Eyebrows orient each section without competing with the main headings.
+*/
+.eyebrow {
+  margin: 0 0 0.65rem;
+  color: var(--color-clay);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+/*
+  Shared button styles keep calls to action tactile and under the 8px radius limit.
+*/
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.9rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-small);
+  padding: 0.72rem 1rem;
+  font-weight: 850;
+  line-height: 1.1;
+  text-decoration: none;
+}
+
+/*
+  The primary button uses the darkest color for strong contrast.
+*/
+.primary-button {
+  background: var(--color-ink);
+  color: var(--color-surface);
+}
+
+/*
+  The secondary button stays visible while keeping the primary action dominant.
+*/
+.secondary-button {
+  border-color: rgba(49, 106, 66, 0.35);
+  background: rgba(255, 253, 245, 0.6);
+  color: var(--color-canopy);
+}
+
+/*
+  Custom focus outlines preserve accessibility after button styling.
+*/
+.button:focus-visible {
+  outline: 0.2rem solid rgba(182, 95, 58, 0.55);
+  outline-offset: 0.2rem;
+}

@@ -1,0 +1,156 @@
+/*
+  Hero layout and CSS-only grassland scene for the grasshopper field guide.
+  Every visual shape is drawn with CSS so the site remains asset-free.
+*/
+
+/*
+  The hero uses two columns on wide screens to balance the introduction with the decorative scene.
+*/
+.hero-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(20rem, 0.98fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+  width: min(var(--content-width), calc(100% - 2rem));
+  min-height: calc(100vh - 4.2rem);
+  margin: 0 auto;
+  padding: clamp(3rem, 8vw, 6.5rem) 0;
+}
+
+/*
+  The copy column is capped so the large heading remains readable.
+*/
+.hero-copy {
+  max-width: 40rem;
+}
+
+/*
+  The main heading uses bounded fluid sizing so long words still fit on small screens.
+*/
+h1 {
+  max-width: 11ch;
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3.25rem, 7vw, 6.7rem);
+  line-height: 0.92;
+  letter-spacing: 0;
+}
+
+/*
+  Supporting copy is larger than body text but remains secondary to the title.
+*/
+.hero-summary {
+  max-width: 39rem;
+  margin: 1.45rem 0 0;
+  color: var(--color-muted);
+  font-size: clamp(1.05rem, 2vw, 1.28rem);
+}
+
+/*
+  The action row wraps so the buttons never force horizontal scrolling.
+*/
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 2rem;
+}
+
+/*
+  The visual panel provides a field-like scene with gradients, arcs, and blades.
+*/
+.hero-visual {
+  position: relative;
+  min-height: clamp(21rem, 45vw, 32rem);
+  overflow: hidden;
+  border: 1px solid rgba(88, 98, 80, 0.18);
+  border-radius: var(--radius-small);
+  background:
+    linear-gradient(180deg, rgba(204, 228, 223, 0.92), rgba(247, 244, 234, 0.8) 58%),
+    linear-gradient(90deg, rgba(107, 143, 56, 0.18), rgba(182, 183, 96, 0.22));
+  box-shadow: var(--shadow-soft);
+}
+
+/*
+  The sun disc gives the scene a clear light source without adding an asset.
+*/
+.sun-disc {
+  position: absolute;
+  right: 12%;
+  top: 12%;
+  width: 7.5rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, #f6d276 0 35%, rgba(246, 210, 118, 0) 68%);
+}
+
+/*
+  Jump arcs imply grasshopper motion while keeping the scene abstract.
+*/
+.jump-arc {
+  position: absolute;
+  border: 0.18rem solid transparent;
+  border-top-color: rgba(49, 106, 66, 0.58);
+  border-radius: 50%;
+}
+
+/*
+  The first arc represents the larger leap path across the panel.
+*/
+.arc-one {
+  left: 16%;
+  top: 28%;
+  width: 58%;
+  height: 40%;
+  transform: rotate(-12deg);
+}
+
+/*
+  The second arc adds depth so the scene does not depend on one decorative line.
+*/
+.arc-two {
+  left: 34%;
+  top: 42%;
+  width: 40%;
+  height: 26%;
+  transform: rotate(10deg);
+}
+
+/*
+  Grass blades use absolute placement so each stem can vary in height and angle.
+*/
+.grass-blade {
+  position: absolute;
+  bottom: -1rem;
+  width: 1.1rem;
+  border-radius: 999px 999px 0 0;
+  background: linear-gradient(90deg, var(--color-canopy), var(--color-moss));
+  transform-origin: bottom center;
+}
+
+/*
+  Each blade has its own placement to create a natural foreground rhythm.
+*/
+.blade-one {
+  left: 12%;
+  height: 62%;
+  transform: rotate(-15deg);
+}
+
+.blade-two {
+  left: 36%;
+  height: 74%;
+  transform: rotate(8deg);
+}
+
+.blade-three {
+  right: 28%;
+  height: 68%;
+  transform: rotate(-24deg);
+}
+
+.blade-four {
+  right: 10%;
+  height: 54%;
+  transform: rotate(18deg);
+}

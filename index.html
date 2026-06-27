@@ -1,0 +1,236 @@
+<!--
+  Static entry point for the grasshopper field guide.
+  The page uses local CSS only so it can open directly in a browser without a server, scripts, or assets.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="A static field guide about grasshopper anatomy, life cycles, habitats, and ecological roles."
+  >
+  <title>Grasshoppers: A Field Guide</title>
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="hero.css">
+  <link rel="stylesheet" href="sections.css">
+  <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+  <!-- Keyboard users can jump past the repeated header links directly into the article content. -->
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- The header keeps navigation simple because the site is a single static document. -->
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a class="brand-mark" href="#top" aria-label="Grasshoppers home">
+        <span class="brand-icon" aria-hidden="true"></span>
+        <span>Grasshoppers</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#anatomy">Anatomy</a>
+        <a href="#life-cycle">Life Cycle</a>
+        <a href="#habitat">Habitat</a>
+        <a href="#ecology">Ecology</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <!-- The first viewport combines a field-guide introduction with CSS-drawn grassland shapes. -->
+    <section id="top" class="hero-section" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Order Orthoptera</p>
+        <h1 id="hero-title">Grasshoppers are spring-loaded meadow engineers.</h1>
+        <p class="hero-summary">
+          Built for jumping, tuned for vibration, and woven into grassland food webs, grasshoppers are among the most
+          recognizable insects people meet in warm open places.
+        </p>
+        <div class="hero-actions" aria-label="Featured links">
+          <a class="button primary-button" href="#field-notes">Read Field Notes</a>
+          <a class="button secondary-button" href="#quick-facts">See Quick Facts</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <span class="sun-disc"></span>
+        <span class="jump-arc arc-one"></span>
+        <span class="jump-arc arc-two"></span>
+        <span class="grass-blade blade-one"></span>
+        <span class="grass-blade blade-two"></span>
+        <span class="grass-blade blade-three"></span>
+        <span class="grass-blade blade-four"></span>
+      </div>
+    </section>
+
+    <!-- Quick facts give readers a scannable overview before the deeper sections. -->
+    <section id="quick-facts" class="quick-facts" aria-labelledby="quick-facts-title">
+      <div class="section-heading">
+        <p class="eyebrow">Fast signals</p>
+        <h2 id="quick-facts-title">What makes a grasshopper a grasshopper?</h2>
+      </div>
+
+      <div class="fact-grid">
+        <article class="fact-card">
+          <span class="fact-number">01</span>
+          <h3>Hind legs work like levers</h3>
+          <p>
+            Their enlarged back legs store and release force quickly, helping many species leap far beyond their body
+            length.
+          </p>
+        </article>
+
+        <article class="fact-card">
+          <span class="fact-number">02</span>
+          <h3>They hear with body membranes</h3>
+          <p>
+            Many short-horned grasshoppers detect sound through tympanal organs on the sides of the abdomen.
+          </p>
+        </article>
+
+        <article class="fact-card">
+          <span class="fact-number">03</span>
+          <h3>Young grasshoppers molt</h3>
+          <p>
+            Nymphs resemble small adults, but they shed their outer skeleton several times before reaching full size.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Anatomy explains the physical traits behind grasshopper movement, feeding, and sensing. -->
+    <section id="anatomy" class="content-band" aria-labelledby="anatomy-title">
+      <div class="section-heading">
+        <p class="eyebrow">Body plan</p>
+        <h2 id="anatomy-title">A compact machine for chewing, sensing, and jumping</h2>
+      </div>
+
+      <div class="split-layout">
+        <div class="text-column">
+          <p>
+            Grasshoppers have the classic insect body plan: head, thorax, abdomen, six legs, antennae, and a hard
+            external skeleton. Their chewing mouthparts are adapted for plant material, while their compound eyes help
+            them detect motion across a wide field of view.
+          </p>
+          <p>
+            The thorax anchors the legs and wings. The abdomen houses major digestive and reproductive organs, and in
+            many species it also carries the sound-sensing membranes used during courtship and escape behavior.
+          </p>
+        </div>
+
+        <dl class="detail-list">
+          <div>
+            <dt>Antennae</dt>
+            <dd>Short sensory structures that sample touch and chemical cues around leaves and stems.</dd>
+          </div>
+          <div>
+            <dt>Pronotum</dt>
+            <dd>A saddle-like plate behind the head that helps protect the front of the thorax.</dd>
+          </div>
+          <div>
+            <dt>Femur</dt>
+            <dd>The thick upper segment of the hind leg where much of the jumping power is stored.</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- The life-cycle section uses ordered markup because development happens in a fixed sequence. -->
+    <section id="life-cycle" class="content-band" aria-labelledby="life-cycle-title">
+      <div class="section-heading">
+        <p class="eyebrow">Development</p>
+        <h2 id="life-cycle-title">From egg pod to winged adult</h2>
+      </div>
+
+      <ol class="timeline">
+        <li>
+          <span class="timeline-step">Egg</span>
+          <p>
+            Females place clusters of eggs in soil or plant litter, where the eggs are buffered from weather swings
+            and many surface predators.
+          </p>
+        </li>
+        <li>
+          <span class="timeline-step">Nymph</span>
+          <p>
+            Young grasshoppers emerge without fully developed wings and feed actively as they pass through molts.
+          </p>
+        </li>
+        <li>
+          <span class="timeline-step">Adult</span>
+          <p>
+            Adults can reproduce, disperse more effectively, and in many species use sound or display during courtship.
+          </p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Habitat notes connect common observations to the warm open places grasshoppers often use. -->
+    <section id="habitat" class="content-band" aria-labelledby="habitat-title">
+      <div class="section-heading">
+        <p class="eyebrow">Where they live</p>
+        <h2 id="habitat-title">Grasslands, edges, fields, and warm open ground</h2>
+      </div>
+
+      <div class="habitat-grid">
+        <article>
+          <h3>Sunlit vegetation</h3>
+          <p>
+            Many species thrive where sunlight warms the ground and grasses provide food, cover, and egg-laying sites.
+          </p>
+        </article>
+
+        <article>
+          <h3>Seasonal abundance</h3>
+          <p>
+            Their numbers often rise in warm months when plant growth is high and nymphs can develop quickly.
+          </p>
+        </article>
+
+        <article>
+          <h3>Local specialization</h3>
+          <p>
+            Some species prefer dry prairies, some favor damp meadows, and others live along disturbed edges.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Ecology is framed as a balanced role: grasshoppers are food-web members and occasional crop pests. -->
+    <section id="ecology" class="content-band" aria-labelledby="ecology-title">
+      <div class="section-heading">
+        <p class="eyebrow">Ecological role</p>
+        <h2 id="ecology-title">Small herbivores with large ripple effects</h2>
+      </div>
+
+      <div class="role-layout">
+        <p>
+          Grasshoppers convert plant tissue into insect biomass that feeds birds, reptiles, amphibians, spiders, and
+          other insects. Their grazing can shape plant communities and recycle nutrients.
+        </p>
+        <p>
+          In some conditions, especially when weather favors survival and food is abundant, grasshopper populations can
+          damage crops and rangeland. Knowing their life cycle helps land managers respond with better timing.
+        </p>
+      </div>
+    </section>
+
+    <!-- Field notes close the page with practical observation advice that does not require special equipment. -->
+    <section id="field-notes" class="field-notes" aria-labelledby="field-notes-title">
+      <div class="section-heading">
+        <p class="eyebrow">Field notes</p>
+        <h2 id="field-notes-title">How to observe grasshoppers well</h2>
+      </div>
+
+      <ul class="observation-list">
+        <li>Walk slowly along warm, grassy edges and watch for sudden jumps ahead of your feet.</li>
+        <li>Notice antenna length, wing length, hind-leg color, and whether the insect flies after jumping.</li>
+        <li>Listen for short buzzes, clicks, or snaps produced during movement or courtship displays.</li>
+        <li>Observe without handling when possible, because small insects lose water quickly in hot, dry weather.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
